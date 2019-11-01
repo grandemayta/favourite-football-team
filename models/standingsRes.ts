@@ -1,4 +1,4 @@
-export interface StandingRes {
+export interface StandingsRes {
   draw: number,
   goalDifference: number,
   goalsAgainst: number,

@@ -10,6 +10,7 @@ export class Standings extends HTMLElement {
     const season = "2019";
     const standings: StandingsRes = await getStandings({ competition, season });
     console.log(standings);
+    standings.
 
     this.innerHTML = `
       <table>
