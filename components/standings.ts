@@ -16,6 +16,14 @@ export class Standings extends HTMLElement {
 
     console.log(findTeam);
 
+    if (findTeam === 0) {
+      console.log(standings.slice(0, 3));
+    } else if (findTeam === (standings.length -1)) {
+      console.log(standings.slice((standings.length - 3), 3));
+    } else {
+      console.log(standings.slice((standings.length - 1), 3));
+    }
+
     this.innerHTML = `
       <table>
         <tr>
