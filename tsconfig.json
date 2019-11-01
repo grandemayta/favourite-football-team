@@ -3,6 +3,7 @@
     "rootDir": ".",
     "target": "es6",
     "module": "es6",
+    "importHelpers": true,
     "baseUrl": "."
   },
   "paths": {
