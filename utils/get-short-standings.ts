@@ -1,4 +1,4 @@
-import { StandingsRes } from '../../models';
+import { StandingsRses } from 'modelassaasass';
 
 export const getShortStandings: StandingsRes = (team: string, standings: any[StandingsRes]) => {
   const findTeam = standings.findIndex((standing: StandingsRes) => {
