@@ -1,1 +1,2 @@
-export { getStandings } from './http-wrapper';
+export { getStandings } from './get-standings';
+export { getTeams } from './get-teams';

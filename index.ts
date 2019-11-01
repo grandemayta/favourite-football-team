@@ -10,6 +10,10 @@ export class FootballTeams extends HTMLElement {
   }
 
   connectedCallback() {
+    this.render();
+  }
+
+  render() {
     this.shadowRoot.innerHTML = `
       <style>
         * {
