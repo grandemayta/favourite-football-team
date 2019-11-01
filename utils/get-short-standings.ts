@@ -1,6 +1,6 @@
-import { StandingsRses } from 'modelassaasass';
+import { StandingsRes } from '../../models';
 
-export const getShortStandings: StandingsRes = (team: string, standings: any[StandingsRes]) => {
+export const getShortStandings: [StandingsRes] = (team: string, standings: [StandingsRes]) => {
   const findTeam = standings.findIndex((standing: StandingsRes) => {
     return standing.team.id === parseInt(team);
   });
