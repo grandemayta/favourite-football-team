@@ -8,7 +8,7 @@ export class Standings extends HTMLElement {
     const competition = this.competition.toUpperCase();
     const season = "2019";
     const a = await getStandings({ competition, season });
-    console.log(a);
+    console.log(a.standings[0]);
     this.innerHTML = `
       <table>
         <tr>
