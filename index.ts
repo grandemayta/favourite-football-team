@@ -18,8 +18,6 @@ export class FootballTeams extends HTMLElement {
   async render() {
     const competition = this.competition.toUpperCase();
     const teamId = getTeamId(this.team, await getTeams(competition));
-
-    console.log(teamId);
     
     this.shadowRoot.innerHTML = `
       <style>

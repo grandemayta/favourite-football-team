@@ -3,13 +3,13 @@ export const getShortStandings = (team: string, standings: any[]) => {
     return standing.team.id === parseInt(team);
   });
 
-  let position;
-
-  if (findTeam === 0) {
-    position = 0;
-  } else if (findTeam === (standings.length - 1)) {
-    position = standings.length - 3;
+  switch(true) {
+    case findTeam === 0:
+      return standings.splice(0, 3);
+    case findTeam === (standings.length - 1):
+      return standings.splice(standings.length - 3, 3);
+      break;
+    default:
+      return standings.splice(findTeam - 1, 3);
   }
-
-  return standings.splice(position || findTeam - 1, 3);
 };

@@ -1,5 +1,8 @@
 export class StandingsList extends HTMLElement {
+  get items() { return this.getAttribute('items'); }
+
   connectedCallback() {
+    console.log(this.items);
     this.render();
   }
 

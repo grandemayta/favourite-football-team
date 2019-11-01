@@ -18,7 +18,7 @@ export class Standings extends HTMLElement {
     window['items'] = getShortStandings(this.team, standings);
 
     this.innerHTML = `
-      <gm-standings-list></gm-standings-list>
+      <gm-standings-list items="${window['items']}"></gm-standings-list>
     `;
   }
 }
