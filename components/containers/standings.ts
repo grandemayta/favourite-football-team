@@ -1,5 +1,5 @@
 import { getStandings } from '../../services'
-import { StandingsRes } from '../..models';
+import { StandingsReq, StandingsRes } from '../..models';
 import { getShortStandings } from '../../utils';
 
 export class Standings extends HTMLElement {
@@ -11,14 +11,12 @@ export class Standings extends HTMLElement {
   }
 
   async render() {
-    const competition = this.competition.toUpperCase();
-    const season = "2019";
-    const standings: [StandingsRes] = await getStandings({ competition, season });
-    
-    window['items'] = getShortStandings(this.team, standings);
+    const standingsParams: StandingsReq = { competition: this.competition, season: '2019' };
+    const standings: [StandingsRes] = await getStandings(standingsParams);
+    const shortStandings: string = JSON.stringify(getShortStandings(this.team, standings));
 
     this.innerHTML = `
-      <gm-standings-list items="${window['items']}"></gm-standings-list>
+      <gm-standings-list items='${shortStandings}'></gm-standings-list>
     `;
   }
 }
