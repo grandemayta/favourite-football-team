@@ -1,9 +1,4 @@
 export interface StandingsReq {
-  competition: Competitions,
+  competition: string,
   season: string 
-}
-
-enum Competitions {
-  sa = "SA",
-  sb = "SB"
 }

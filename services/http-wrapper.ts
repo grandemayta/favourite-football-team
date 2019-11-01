@@ -6,7 +6,7 @@ const httpWrapper = endpoint => {
 };
 
 export const getStandings = async (req: StandingsReq) => {
-    const endpoint = `competitions/${req}/standings?season=${req.season}`;
+    const endpoint = `competitions/${req.competition}/standings?season=${req.season}`;
     const response = await httpWrapper(endpoint);
     return response.json();
 };
