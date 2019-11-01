@@ -1,4 +1,5 @@
 import { getStandings } from '../services'
+import { StandingsRes } from '../models';
 
 export class Standings extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
@@ -7,7 +8,7 @@ export class Standings extends HTMLElement {
   async connectedCallback() {
     const competition = this.competition.toUpperCase();
     const season = "2019";
-    const standings = await getStandings({ competition, season });
+    const standings: StandingsRes = await getStandings({ competition, season });
     console.log(standings);
 
     this.innerHTML = `

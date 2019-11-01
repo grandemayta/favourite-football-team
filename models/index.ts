@@ -1,1 +1,2 @@
-export { StandingsReq, StandingsRes } from './standingsReq';
+export { StandingsReq } from './standingsReq';
+export { StandingsRes } from './standingsRes';
