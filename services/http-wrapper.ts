@@ -1,12 +1,13 @@
 import { BASEURL, HEADERS } from '../constants';
-import { StandingsReq } from '../models';
+import { StandingsReq, StandingsRes } from '../models';
 
 const httpWrapper = endpoint => {
     return fetch(`${BASEURL}/${endpoint}`, { headers: HEADERS });
 };
 
-export const getStandings = async (req: StandingsReq) => {
+export const getStandings: StandingsRes = async (req: StandingsReq) => {
     const endpoint = `competitions/${req.competition}/standings?season=${req.season}`;
     const response = await httpWrapper(endpoint);
-    return response.json();
+    const json = await response.json();
+    return json.standings[0].table;
 };
