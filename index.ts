@@ -17,8 +17,9 @@ export class FootballTeams extends HTMLElement {
 
   async render() {
     const competition = this.competition.toUpperCase();
-    const teams = await getTeams(competition);
-    getTeamId(this.team, teams);
+    const teamId = getTeamId(this.team, await getTeams(competition));
+
+    console.log(teamId);
     
     this.shadowRoot.innerHTML = `
       <style>
@@ -39,7 +40,7 @@ export class FootballTeams extends HTMLElement {
         }
       </style>
       <h1>STANDINGS</h1>
-      <gm-standings competition="${competition}" team="${this.team}"></gm-standings>
+      <gm-standings competition="${competition}" team="${teamId}"></gm-standings>
       <h1>NEXT MATCHES</h1>
       <h1>PLAYERS SCORES</h1>
     `;

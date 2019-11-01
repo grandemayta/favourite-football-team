@@ -1,5 +1,6 @@
 import { getStandings } from '../../services'
 import { StandingsRes } from '../..models';
+import { getShortStandings } from '../../utils';
 
 export class Standings extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
@@ -13,22 +14,8 @@ export class Standings extends HTMLElement {
     const competition = this.competition.toUpperCase();
     const season = "2019";
     const standings: [StandingsRes] = await getStandings({ competition, season });
-    const findTeam = standings.findIndex(standing => {
-      const team = standing.team.name.toLowerCase();
-      return team.includes(this.team.toLowerCase());
-    });
-
-    let first3Positions: [StandingsRes];
-
-    if (findTeam === 0) {
-      first3Positions = standings.splice(0, 3);
-    } else if (findTeam === (standings.length - 1)) {
-      first3Positions = standings.splice((standings.length - 3), 3);
-    } else {
-      first3Positions = standings.splice((findTeam - 1), 3);
-    }
     
-    window['items'] = first3Positions;
+    window['items'] = getShortStandings(this.team, standings);
 
     this.innerHTML = `
       <gm-standings-list></gm-standings-list>
