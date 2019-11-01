@@ -1,0 +1,1 @@
+export { standingsReq } from './standingsReq';
