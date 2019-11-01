@@ -1,7 +1,9 @@
 {
   "compilerOptions": {
+    "rootDir": ".",
     "target": "es6",
-    "module": "es6"
+    "module": "es6",
+    "baseUrl": "."
   },
   "paths": {
       "@grandemayta/data": ["constants/index.ts"]
