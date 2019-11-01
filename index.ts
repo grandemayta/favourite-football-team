@@ -1,8 +1,4 @@
-
-import { BASEURL, HEADERS } from './constants';
-
-console.log(BASEURL);
-
+export { Standings } from './components/standings';
 export class FootballTeams extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
   get team() { return this.getAttribute('team'); }
@@ -32,6 +28,7 @@ export class FootballTeams extends HTMLElement {
         }
       </style>
       <h1>STANDINGS</h1>
+      <gm-standings competition="${this.competition}" team="${this.team}"></gm-standings>
       <h1>NEXT MATCHES</h1>
       <h1>PLAYERS SCORES</h1>
     `;
