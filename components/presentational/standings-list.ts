@@ -15,11 +15,11 @@ export class StandingsList extends HTMLElement {
         ${items.reduce((acc, item) => {
           return `
             ${acc}
-            <gm-standings-list-item
+            <tr is="gm-standings-list-item"
               position="${item.position}"
               name="${item.team.name}"
               points="${item.points}">
-            </gm-standings-list-item>
+            </tr>
           `;
         }, '')}
       </table>
