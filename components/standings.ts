@@ -5,7 +5,9 @@ export class Standings extends HTMLElement {
   get team() { return this.getAttribute('team'); }
 
   async connectedCallback() {
-    const a = await getStandings({ competition: this.competition, season: "2019" });
+    const competition = this.competition.toUpperCase();
+    const season = "2019";
+    const a = await getStandings({ competition, season });
     console.log(a);
     this.innerHTML = `
       <table>
