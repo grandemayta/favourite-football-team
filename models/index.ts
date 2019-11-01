@@ -1,1 +1,1 @@
-export { standingsReq } from './standingsReq';
+export { StandingsReq } from './standingsReq';
