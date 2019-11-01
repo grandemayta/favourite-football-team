@@ -1,4 +1,4 @@
-import from './components';
+import './components';
 
 export class FootballTeams extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
