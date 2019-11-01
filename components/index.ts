@@ -1,0 +1,1 @@
+export { Standings } from './components/containers/standings';

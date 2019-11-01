@@ -14,15 +14,19 @@ export class Standings extends HTMLElement {
       return team.includes(this.team.toLowerCase());
     });
 
+    let first3Positions: [StandingsRes];
+
     console.log(findTeam);
 
     if (findTeam === 0) {
-      console.log(standings.slice(0, 3));
-    } else if (findTeam === (standings.length -1)) {
-      console.log(standings.slice((standings.length - 3), 3));
+      first3Positions = standings.splice(0, 3);
+    } else if (findTeam === (standings.length - 1)) {
+      first3Positions = standings.splice((standings.length - 3), 3);
     } else {
-      console.log(standings.slice((standings.length - 1), 3));
+      first3Positions = standings.splice((findTeam - 1), 3);
     }
+
+    console.log(first3Positions);
 
     this.innerHTML = `
       <table>
