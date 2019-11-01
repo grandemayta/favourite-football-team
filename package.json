@@ -1,5 +1,7 @@
 {
   "name": "favourite-footbal-team",
   "version": "0.0.0",
-  "dependencies": {}
+  "dependencies": {
+    "tslib": "^1.10.0"
+  }
 }

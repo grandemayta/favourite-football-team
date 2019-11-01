@@ -4,8 +4,9 @@ export class Standings extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
   get team() { return this.getAttribute('team'); }
 
-  connectedCallback() {
-    console.log(getStandings);
+  async connectedCallback() {
+    // const a = await getStandings(this.competition, this.team);
+    // console.log(a);
     this.innerHTML = `
       <table>
         <tr>
