@@ -1,12 +1,10 @@
 export class StandingsList extends HTMLElement {
-  get items() { return this.getAttribute('items'); }
-
   connectedCallback() {
-    console.log('aaa', JSON.parse(this.items));
     this.render();
   }
 
   render() {
+    const items = window['items'];
     this.innerHTML = `
       <table>
         <tr>
@@ -14,11 +12,15 @@ export class StandingsList extends HTMLElement {
           <th>Team</th>
           <th>Points</th>
         </tr>
-        <tr>
-          <td>1</td>
-          <td>Inter</td>
-          <td>100</td>
-        </tr>
+        ${items.reduce((acc, item) => {
+          return `
+            ${acc}
+            <gm-standings-list-item
+              position=${item.position}
+              name=${item.team.name}
+              points=${item.points}' />
+          `;
+        }, '')}
       </table>
     `;
   }

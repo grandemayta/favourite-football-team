@@ -5,7 +5,11 @@ export class Standings extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
   get team() { return this.getAttribute('team'); }
 
-  async connectedCallback() {
+  connectedCallback() {
+    this.render();
+  }
+
+  async render() {
     const competition = this.competition.toUpperCase();
     const season = "2019";
     const standings: [StandingsRes] = await getStandings({ competition, season });
@@ -16,8 +20,6 @@ export class Standings extends HTMLElement {
 
     let first3Positions: [StandingsRes];
 
-    console.log(findTeam);
-
     if (findTeam === 0) {
       first3Positions = standings.splice(0, 3);
     } else if (findTeam === (standings.length - 1)) {
@@ -25,11 +27,11 @@ export class Standings extends HTMLElement {
     } else {
       first3Positions = standings.splice((findTeam - 1), 3);
     }
-
-    console.log(first3Positions);
+    
+    window['items'] = first3Positions;
 
     this.innerHTML = `
-      <gm-standings-list items="${JSON.stringify(first3Positions)}"></gm-standings-list>
+      <gm-standings-list></gm-standings-list>
     `;
   }
 }
