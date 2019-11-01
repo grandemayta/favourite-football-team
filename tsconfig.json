@@ -5,8 +5,5 @@
     "module": "es6",
     "importHelpers": true,
     "baseUrl": "."
-  },
-  "paths": {
-      "@grandemayta/data": ["constants/index.ts"]
-    }
+  }
 }

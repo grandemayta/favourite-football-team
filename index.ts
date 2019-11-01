@@ -1,5 +1,5 @@
 
-import { BASEURL, HEADERS } from '@grandemayta/data';
+import { BASEURL, HEADERS } from './constants';
 
 console.log(BASEURL);
 
