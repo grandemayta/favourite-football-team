@@ -16,9 +16,10 @@ export class StandingsList extends HTMLElement {
           return `
             ${acc}
             <gm-standings-list-item
-              position=${item.position}
-              name=${item.team.name}
-              points=${item.points}' />
+              position="${item.position}"
+              name="${item.team.name}"
+              points="${item.points}">
+            </gm-standings-list-item>
           `;
         }, '')}
       </table>
