@@ -1,4 +1,5 @@
 import { getTeams } from './services';
+import { getTeamId } from './utils';
 import './components';
 
 export class FootballTeams extends HTMLElement {
@@ -16,6 +17,8 @@ export class FootballTeams extends HTMLElement {
 
   async render() {
     const competition = this.competition.toUpperCase();
+    const teams = await getTeams(competition);
+    getTeamId(this.team, teams);
     
     this.shadowRoot.innerHTML = `
       <style>

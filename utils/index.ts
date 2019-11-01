@@ -1,0 +1,1 @@
+export { getTeamId } from './get-team-id';
