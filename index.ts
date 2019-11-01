@@ -1,4 +1,5 @@
-export * from  './components';
+import { getTeams } from './services';
+import './components';
 
 export class FootballTeams extends HTMLElement {
   get competition() { return this.getAttribute('competition'); }
@@ -13,7 +14,10 @@ export class FootballTeams extends HTMLElement {
     this.render();
   }
 
-  render() {
+  async render() {
+    const competition = this.competition.toUpperCase();
+    const teams = await getTeams(competition);
+    console.log(teams);
     this.shadowRoot.innerHTML = `
       <style>
         * {
@@ -33,7 +37,7 @@ export class FootballTeams extends HTMLElement {
         }
       </style>
       <h1>STANDINGS</h1>
-      <gm-standings competition=${this.competition} team=${this.team}></gm-standings>
+      <gm-standings competition=${competition} team=${this.team}></gm-standings>
       <h1>NEXT MATCHES</h1>
       <h1>PLAYERS SCORES</h1>
     `;
