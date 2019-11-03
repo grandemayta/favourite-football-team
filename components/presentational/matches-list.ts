@@ -15,7 +15,6 @@ export class MatchesList extends HTMLElement {
               <td>${item.homeTeam.name}</td>
               <td>VS</td>
               <td>${item.awayTeam.name}</td>
-              <td>${item.competition.name}</td>
             </tr>
           `;
         }, '')}
