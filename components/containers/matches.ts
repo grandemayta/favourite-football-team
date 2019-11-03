@@ -14,9 +14,9 @@ export class Matches extends HTMLElement {
       status: 'SCHEDULED',
       limit: 3
     };
-    console.log(await getMatches(matchesRequest));
+    const matches: string = JSON.stringify(await getMatches(matchesRequest));
     this.innerHTML = `
-      <h2>NEXT MATCHES</h2>
+      <gm-matches-list items='${matches}'></gm-matches-list>
     `;
   }
 }
