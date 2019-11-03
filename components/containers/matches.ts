@@ -10,9 +10,11 @@ export class Matches extends HTMLElement {
 
   async render() {
     const matchesRequest: MatchesReq = {
-      
+      teamId: this.team,
+      status: 'SCHEDULED',
+      limit: 3
     };
-    console.log(await getMatches());
+    console.log(await getMatches(matchesRequest));
     this.innerHTML = `
       <h2>NEXT MATCHES</h2>
     `;
