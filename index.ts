@@ -40,6 +40,7 @@ export class FootballTeams extends HTMLElement {
       <h1>STANDINGS</h1>
       <gm-standings competition="${competition}" team="${teamId}"></gm-standings>
       <h1>NEXT MATCHES</h1>
+      <gm-matches competition="${competition}" team="${teamId}"></gm-matches>
       <h1>PLAYERS SCORES</h1>
     `;
   }
